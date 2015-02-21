@@ -13,7 +13,7 @@ function main() {
     var id = sdk.currentEventID(result);
     var name = sdk.currentEventName(result);
     $('h2').html(name);
-    sdk.getEventRsvps('219481220', setPeople);
+    sdk.getEventRsvps(id, setPeople);
   });
 
   $('#winner button').on('click', winnerButton);
