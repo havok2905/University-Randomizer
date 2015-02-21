@@ -1,4 +1,4 @@
-var api   = new MeetupSDK(APIKEY);
+var sdk   = new MeetupSDK(APIKEY);
 var names = [];
 
 $(document).ready(main);
@@ -9,11 +9,11 @@ $(document).ready(main);
  */
 
 function main() {
-  api.getEvents(VENUEID, function(result) {
-    var id = api.currentEventID(result);
-    var name = api.currentEventName(result);
+  sdk.getEvents(VENUEID, function(result) {
+    var id = sdk.currentEventID(result);
+    var name = sdk.currentEventName(result);
     $('h2').html(name);
-    api.getEventRsvps('219481220', setPeople);
+    sdk.getEventRsvps('219481220', setPeople);
   });
 
   $('#winner button').on('click', winnerButton);
@@ -54,7 +54,7 @@ function removeButton() {
  */
 
 function setPeople(rsvps) {
-  names = api.rsvpNames(rsvps);
+  names = sdk.rsvpNames(rsvps);
 }
 
 
